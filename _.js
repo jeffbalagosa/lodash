@@ -65,6 +65,15 @@ const _ = {
     }
     return undefined;
   },
+  drop(arr, num) {
+    let newArr = [];
+    if (num === undefined) {
+      num = 1;
+    }
+    newArr = arr.slice(num, arr.length);
+    return newArr;
+  },
+  dropWhile() {},
 };
 
 // Do not write or modify code below this line.
