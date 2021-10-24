@@ -73,7 +73,22 @@ const _ = {
     newArr = arr.slice(num, arr.length);
     return newArr;
   },
-  dropWhile() {},
+  dropWhile(arr, predicate) {
+    let cb = (element, index) => {
+      return !predicate(element, index, arr);
+    };
+    let dropNum = arr.findIndex(cb);
+    let droppedArr = this.drop(arr, dropNum);
+    return droppedArr;
+  },
+  chunk(arr, size = 1) {
+    let arrayChunks = [];
+    for (let i = 0; i < arr.length; i += size) {
+      let arrayChunk = arr.slice(i, i + size);
+      arrayChunks.push(arrayChunk);
+    }
+    return arrayChunks;
+  },
 };
 
 // Do not write or modify code below this line.
